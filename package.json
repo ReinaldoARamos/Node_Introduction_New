@@ -4,7 +4,7 @@
   "description": "projeto node",
   "main": "index.js",
   "scripts": {
-    "test": "echo"
+    "test": "start"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ReinaldoARamos/Node_Introduction_New/issues"
   },
-  "homepage": "https://github.com/ReinaldoARamos/Node_Introduction_New#readme"
+  "homepage": "https://github.com/ReinaldoARamos/Node_Introduction_New#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
