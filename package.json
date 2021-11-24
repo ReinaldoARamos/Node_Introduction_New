@@ -1,0 +1,22 @@
+{
+  "name": "node_project",
+  "version": "1.0.0",
+  "description": "projeto node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReinaldoARamos/Node_Introduction_New.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "reinaldo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReinaldoARamos/Node_Introduction_New/issues"
+  },
+  "homepage": "https://github.com/ReinaldoARamos/Node_Introduction_New#readme"
+}
