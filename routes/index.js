@@ -9,3 +9,7 @@ routes.get(
     res.end("<h1> ai...</h1>");
   }
 );
+
+module.exports = routes; 
+//exportamos isso para que ele exporte o routes para quem tiver chamando
+//ou requerindo o index.js como um módulo
