@@ -1,7 +1,11 @@
-const http = require('http');
+const express = require('express'); //Iniciando o framework Express, já que o mesmo já puxa HTTP
+let app =  express(); //Essa variável retornar toda a aplicação e o conjunto de informaçõesn rodando intermnamente
 
-
-let server = http.createServer((req, res) => { //criamos a variável server 
+app.get('/' /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/
+,(req, res) => { 
+    
+    //Foi removido o create server e substituído diretamente pelo metodo que vamos 
+    //utilizar pela rota, nesse caso o GET
 
     console.log('URL', req.url) //Essa variável vai receber as solicitações do servidor, aqui é a URL
     console.log('METHOD', req.method) //Aqui é o método do servidor
