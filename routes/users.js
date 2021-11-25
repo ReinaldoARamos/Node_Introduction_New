@@ -2,8 +2,8 @@ let express = require('express');
 let user = express.Router();
 
 
-app.get(
-  "/users" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
+user.get(
+  "/" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
   (req, res) => {
     res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
     res.setHeader("Content-Type", "application/json"); //especifíca o tipo de conteúdo, nesse caso JSON
@@ -19,7 +19,26 @@ app.get(
       ],
     });
   }
+
+  
 );
+
+user.get('/admin' ,  (req, res) => {
+  res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
+    res.setHeader("Content-Type", "application/json"); //especifíca o tipo de conteúdo, nesse caso JSON
+    res.json({
+      //Criação do JSON
+
+      users: [
+        
+      ],
+    });
+  }
+
+  
+);
+    
+
 module.exports = user; 
 //Foi removido o create server e substituído diretamente pelo metodo que vamos
 //utilizar pela rota, nesse caso o GET
