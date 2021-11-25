@@ -1,4 +1,7 @@
-app.get(
+let express = require('express')
+let routes = express.Router();
+
+routes.get(
   "/" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
   (req, res) => {
     res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
