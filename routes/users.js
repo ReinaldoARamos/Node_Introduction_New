@@ -1,3 +1,7 @@
+let express = require('express');
+let user = express.Router();
+
+
 app.get(
   "/users" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
   (req, res) => {
@@ -16,5 +20,6 @@ app.get(
     });
   }
 );
+module.exports = user; 
 //Foi removido o create server e substituído diretamente pelo metodo que vamos
 //utilizar pela rota, nesse caso o GET
