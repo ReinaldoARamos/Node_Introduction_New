@@ -6,7 +6,7 @@ routes.get(
   (req, res) => {
     res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
     res.setHeader("Content-Type", "text/HTMl"); //Retorna um header em HTML
-    res.end("<h1> ai...</h1>");
+    res.end("<h1> ai....</h1>");
   }
   
 )
