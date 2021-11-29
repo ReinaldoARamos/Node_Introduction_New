@@ -21,6 +21,7 @@
   "homepage": "https://github.com/ReinaldoARamos/Node_Introduction_New#readme",
   "dependencies": {
     "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
     "consign": "^0.1.6",
     "express": "^4.17.1",
     "nodemon": "^2.0.15"
