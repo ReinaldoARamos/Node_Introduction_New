@@ -23,16 +23,12 @@ module.exports = (app)=>{
     
   );
   
-  app.get('/user/admin' ,  (req, res) => {
-    res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
-      res.setHeader("Content-Type", "application/json"); //especifíca o tipo de conteúdo, nesse caso JSON
-      res.json({
-        //Criação do JSON
-  
-        users: [
-          
-        ],
-      });
+  app.post('/user' ,  (req, res) => { 
+    //foi apagado o get e trocado pelo post
+    // para que possamos simular um no Psotman
+    
+     
+      res.json(req.body);
     }
   
     
