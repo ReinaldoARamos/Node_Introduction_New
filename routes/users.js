@@ -1,7 +1,4 @@
-
-
-
-module.exports = (app)=>{
+module.exports = (app) => {
   app.get(
     "/user" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
     (req, res) => {
@@ -9,7 +6,7 @@ module.exports = (app)=>{
       res.setHeader("Content-Type", "application/json"); //especifíca o tipo de conteúdo, nesse caso JSON
       res.json({
         //Criação do JSON
-  
+
         users: [
           {
             name: "Reinaldo",
@@ -19,26 +16,15 @@ module.exports = (app)=>{
         ],
       });
     }
-  
-    
   );
-  
-  app.post('/user' ,  (req, res) => { 
+
+  app.post("/user", (req, res) => {
     //foi apagado o get e trocado pelo post
     // para que possamos simular um no Psotman
-    
-     
-      res.json(req.body); //Foi removido o res pois ele entende que é um
-      //JSON e entende que é um código 200(funcionou)
-    
-    }
-  
-    
-    
-  );
-      
-  
 
-}
+    res.json(req.body); //Foi removido o res pois ele entende que é um
+    //JSON e entende que é um código 200(funcionou)
+  });
+};
 //Foi removido o create server e substituído diretamente pelo metodo que vamos
 //utilizar pela rota, nesse caso o GET
