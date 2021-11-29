@@ -28,7 +28,9 @@ module.exports = (app)=>{
     // para que possamos simular um no Psotman
     
      
-      res.json(req.body);
+      res.json(req.body); //Foi removido o res pois ele entende que é um
+      //JSON e entende que é um código 200(funcionou)
+    
     }
   
     
