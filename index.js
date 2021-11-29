@@ -7,7 +7,7 @@ let app = express(); //Essa variável retornar toda a aplicação e o conjunto d
 //módulo index e sim um da pasta, por isso colocamos o diretório
 
 
-app.use(bodyParser.urlenconded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 consign().include("routes").into(app);
 
