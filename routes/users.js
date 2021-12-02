@@ -1,5 +1,9 @@
 let neDB = require('nedb') //require do banco de dados em javaScript
 
+let db = new neDB({
+  filename: 'users.db',
+  autoload: true
+})
 
 module.exports = (app) => {
   app.get(
