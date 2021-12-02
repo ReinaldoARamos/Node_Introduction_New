@@ -38,6 +38,8 @@ module.exports = (app) => {
         res.status(400).json({
           error: err 
         })
+      } else{
+        res.status(200).json(users); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
       }
     })
     //Aqui dentro usamos o método insertb para inserir dados no banco
