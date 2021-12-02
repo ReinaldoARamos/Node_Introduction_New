@@ -29,10 +29,9 @@ module.exports = (app) => {
     //foi apagado o get e trocado pelo post
     // para que possamos simular um no Psotman
 
-    res.json(req.body); //Foi removido o res pois ele entende que é um
-    //JSON e entende que é um código 200(funcionou)
+    
   
-    db.insert({}, (err, users) => {
+    db.insert(req.body, (err, users) => {
       if(err) {
         console.log(`Error:' ${err}`);
         res.status(400).json({
