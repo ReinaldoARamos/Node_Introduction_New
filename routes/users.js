@@ -31,7 +31,22 @@ module.exports = (app) => {
 
     res.json(req.body); //Foi removido o res pois ele entende que é um
     //JSON e entende que é um código 200(funcionou)
-  });
+  
+    db.insert({}, (err, users) => {
+      if(err) {
+        console.log(`Error:' ${err}`);
+        res.status(400).json({
+          error: err 
+        })
+      }
+    })
+    //Aqui dentro usamos o método insertb para inserir dados no banco
+    //nele colocamos o objto json que estamos retornando e uma função, como a erro por exemplo, 
+    //caso o método retorne erro, como o de cadastro ja existente
+    //e claro, colocamos também os dados do usuário
+
+  
+  }); 
 };
 //Foi removido o create server e substituído diretamente pelo metodo que vamos
 //utilizar pela rota, nesse caso o GET
