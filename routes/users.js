@@ -1,3 +1,6 @@
+let neDB = require('nedb') //require do banco de dados em javaScript
+
+
 module.exports = (app) => {
   app.get(
     "/user" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
