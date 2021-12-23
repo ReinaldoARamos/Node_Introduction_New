@@ -9,7 +9,10 @@ let app = express(); //Essa variável retornar toda a aplicação e o conjunto d
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-consign().include("routes").into(app);
+consign().include('routes').include('utils').into(app);//ao inserir a pasta utils dentro do consing
+//ele exporta cria o atributo da pasta e também da error.js
+//Sendo assim, ele será exportado como módulo em outras partes do app, podendo usar os scripts
+//contidos nele
 
 app.listen(3000, "127.0.0.1", () => {
   //Inserimos a porta e o nosso IP local e uma função anonima
