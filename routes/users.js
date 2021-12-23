@@ -12,8 +12,7 @@ module.exports = (app) => {
       
         db.find({}).sort({nAME: 1}).exec((err, users) => {//exec vai executar os parametros do insert passado no post
           if (err) {
-            console.log(`error: ${err}`)
-            res.status(400).json({error: err})
+            app.utils.error.send(err, req, res);
           }else{
             
             res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
@@ -38,10 +37,8 @@ module.exports = (app) => {
   
     db.insert(req.body, (err, users) => {
       if(err) {
-        console.log(`Error:' ${err}`);
-        res.status(400).json({
-          error: err 
-        })
+        
+        app.utils.error.send(err, req, res);
       } else{
         res.status(200).json(users); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
       }

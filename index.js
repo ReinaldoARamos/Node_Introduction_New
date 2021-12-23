@@ -13,6 +13,7 @@ consign().include('routes').include('utils').into(app);//ao inserir a pasta util
 //ele exporta cria o atributo da pasta e também da error.js
 //Sendo assim, ele será exportado como módulo em outras partes do app, podendo usar os scripts
 //contidos nele
+//tudo isso dentro da variáve app
 
 app.listen(3000, "127.0.0.1", () => {
   //Inserimos a porta e o nosso IP local e uma função anonima
