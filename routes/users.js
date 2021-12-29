@@ -12,7 +12,7 @@ module.exports = (app) => {
       
         db.find({}).sort({nAME: 1}).exec((err, users) => {//exec vai executar os parametros do insert passado no post
           if (err) {
-            app.utils.error.send(err, req, res);
+            app.utils.error.send(err, req, res);//carrega o modulo utils e chama o método send e seus parametros
           }else{
             
             res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
