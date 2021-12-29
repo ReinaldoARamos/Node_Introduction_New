@@ -6,9 +6,8 @@ let db = new neDB({
 })
 
 module.exports = (app) => {
-  app.get(
-    "/user" /*Antes das requisição e resposta passamos o parâmetro, que é a rota*/,
-    (req, res) => {
+  let route = app.route("/user")
+  route.get((req, res) => {
       
         db.find({}).sort({nAME: 1}).exec((err, users) => {//exec vai executar os parametros do insert passado no post
           if (err) {
