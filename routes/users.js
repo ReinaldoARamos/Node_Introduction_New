@@ -28,7 +28,7 @@ module.exports = (app) => {
     }
   );
 
-  app.post("/user", (req, res) => {
+  route.post((req, res) => {
     //foi apagado o get e trocado pelo post
     // para que possamos simular um no Psotman
 
