@@ -20,7 +20,7 @@ module.exports = (app) => {
           res.json({
             //Criação do JSON
 
-            users: users,
+            users: users, //json definido dentro do Postman
           });
         }
       });
