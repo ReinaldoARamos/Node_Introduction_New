@@ -9,7 +9,7 @@ module.exports = (app) => {
   let route = app.route("/user");
   route.get((req, res) => {
     db.find({})
-      .sort({ nAME: 1 })
+      .sort({ NAME: 1 })
       .exec((err, users) => {
         //exec vai executar os parametros do insert passado no post
         if (err) {
@@ -35,6 +35,9 @@ module.exports = (app) => {
         app.utils.error.send(err, req, res);
       } else {
         res.status(200).json(users); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
+     
+
+        
       }
     });
     //Aqui dentro usamos o método insertb para inserir dados no banco

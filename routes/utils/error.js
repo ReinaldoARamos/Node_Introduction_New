@@ -3,7 +3,9 @@ module.exports = {
 
         console.log(`error: ${err}`);
         res.status(code).json({
-            error:err
+            error:err 
+            
+            
                 
         })
 
