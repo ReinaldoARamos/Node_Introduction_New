@@ -86,7 +86,7 @@ module.exports = (app) => {
     //Estabeleci o método get, coloquei a requisisão e a resposta
     db.update({ _id: req.params.id }, req.body).exec((err, user) => {
      //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
-     //No Id selecionado
+     //No Id selecionado, graças ao metodo update do neDB
       if (err) {
         app.utils.error.send(err, req, res);
       } else {
