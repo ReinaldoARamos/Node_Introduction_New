@@ -84,13 +84,14 @@ module.exports = (app) => {
 
   routeId.put((req, res) => {
     //Estabeleci o método get, coloquei a requisisão e a resposta
-    db.update({ _id: req.params.id }, req.body).exec((err, user) => {
+    db.update({ _id: req.params.id }, req.body, err /*Função de callback*/ => {
      //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
      //No Id selecionado, graças ao metodo update do neDB
       if (err) {
         app.utils.error.send(err, req, res);
       } else {
-        res.status(200).json(user); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
+        res.status(200).json(req.body); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
+        
       }
     });
   });
