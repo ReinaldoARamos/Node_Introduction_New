@@ -90,7 +90,7 @@ module.exports = (app) => {
       if (err) {
         app.utils.error.send(err, req, res);
       } else {
-        res.status(200).json(req.body); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
+        res.status(200).json(Object.assign(req.body, req.params)); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
         
       }
     });
