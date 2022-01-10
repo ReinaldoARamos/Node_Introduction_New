@@ -95,6 +95,23 @@ module.exports = (app) => {
       }
     });
   });
+
+  routeId.delete((req, res) => {
+    //Estabeleci o método delete, coloquei a requisisão e a resposta
+    db.remove({ _id: req.params.id }, {}, err /*Função de callback*/ => {
+     //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
+     //No Id selecionado, graças ao metodo update do neDB
+      if (err) {
+        app.utils.error.send(err, req, res);
+      } else {
+        res.status(200).json(req.params); //aqui ele recebe o codigo 200(sucesso) 
+        //e mostra na tela o objeto removido
+        
+      }
+    });
+  });
+
+
 };
 //Foi removido o create server e substituído diretamente pelo metodo que vamos
 //utilizar pela rota, nesse caso o GET
