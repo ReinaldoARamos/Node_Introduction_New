@@ -40,11 +40,25 @@ module.exports = (app) => {
         }
       });
   });
-
-  route.post((req, res) => {
+  const {body, validationResult  } = require('express-validator');
+  route.post(
+    body('email', 'Digite um email valido').isEmpty(),
+    
+    (req, res) => {
     //Colocamos o post para inserir users dentro do DB
     //foi apagado o get e trocado pelo post
     // para que possamos simular um no Psotman
+   //('nAME', 'Nome e obrigatório').notEmpty();
+    //req.assert('email', 'email inválido').isEmail().notEmpty();
+
+    let errors = validationResult(req);
+
+
+    if(errors) {
+      app.utils.error.send(errors, req, res);
+      return false;
+    }
+
 
     db.insert(req.body, (err, users) => {
       //Insert e o comando usado para inserir arquivos dentro do DB

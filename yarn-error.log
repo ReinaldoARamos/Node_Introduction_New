@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add exoress-validator --save
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add express-valitador --save
 
 PATH: 
   /Downloads/node-v16.13.0-linux-x64/bin:/Downloads/node-v16.13.0-linux-x64/bin:/Downloads/node-v16.13.0-linux-x64/bin:/Downloads/node-v16.13.0-linux-x64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/exoress-validator: Not found
+  Error: https://registry.yarnpkg.com/express-valitador: Not found
       at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:67029:18)
       at Request.self.callback (/usr/share/yarn/lib/cli.js:140883:22)
       at Request.emit (events.js:198:13)
