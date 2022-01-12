@@ -40,34 +40,30 @@ module.exports = (app) => {
         }
       });
   });
-  let {body, validationResult, check  } = require('express-validator'); 
+  //let { body, validationResult, check } = require("express-validator");
   //Dando require do body e do ValidationResult para guardar o resultado da validação dos dados
-  route.post(
-    check('NAME', 'nome inválido'  ).isEmpty(),
+  route.post((req, res) => {
+    //Colocamos o post para inserir users dentro do DB
+    //foi apagado o get e trocado pelo post
+    // para que possamos simular um no Psotman
+    body("NAME", "nome inválido").isEmpty();
     //aqui eu inseri o body para ele pegar os campos dentro do body dos users
     //Passei como parãmetro  o nome dos campos, nesse caso passei o NAME
     //Junto com a função isEmpty(), ou seja, ele vai validar o campo
     //E se estiver vazio ele retorna erro
-    check('email', 'email invalido').isEmpty().isEmail().withMessage("email ivalido"),
-    (req, res) => {
-    //Colocamos o post para inserir users dentro do DB
-    //foi apagado o get e trocado pelo post
-    // para que possamos simular um no Psotman
-   //('nAME', 'Nome e obrigatório').notEmpty();
+    body("email", "email invalido").isEmpty().isEmail();
     //req.assert('email', 'email inválido').isEmail().notEmpty();
 
-   let errors = validationResult(req);
-   //Criei um let para guardar o require com o resultado da validação dos campos
+    let errors = validationResult;
+    //Criei um let para guardar o require com o resultado da validação dos campos
 
-
-    if(errors) {
-     //Caso haja algum erro ele retorna error e imprime na tela o erro em formato de JSON e 
-     //retorna status 400
-      res.status(400).json(errors);
-      //app.utils.error.send(errors, req, res);
+    if (errors) {
+      //Caso haja algum erro ele retorna error e imprime na tela o erro em formato de JSON e
+      //retorna status 400
+      //res.status(400).json(errors);
+      app.utils.error.send(errors, req, res);
       return false; //Parar a função
     }
-
 
     db.insert(req.body, (err, users) => {
       //Insert e o comando usado para inserir arquivos dentro do DB
@@ -86,9 +82,8 @@ module.exports = (app) => {
     //nele colocamos o objto json que estamos retornando e uma função, como a erro por exemplo,
     //caso o método retorne erro, como o de cadastro ja existente
     //e claro, colocamos também os dados do usuário
-  
   });
-    
+
   let routeId = app.route("/user/:id");
   //Criei uma roto que vai receber os ids dos users
 
@@ -105,37 +100,36 @@ module.exports = (app) => {
     });
   });
 
-
   routeId.put((req, res) => {
     //Estabeleci o método get, coloquei a requisisão e a resposta
-    db.update({ _id: req.params.id }, req.body, err /*Função de callback*/ => {
-     //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
-     //No Id selecionado, graças ao metodo update do neDB
-      if (err) {
-        app.utils.error.send(err, req, res);
-      } else {
-        res.status(200).json(Object.assign(req.body, req.params)); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
-        
+    db.update(
+      { _id: req.params.id },
+      req.body,
+      (err) /*Função de callback*/ => {
+        //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
+        //No Id selecionado, graças ao metodo update do neDB
+        if (err) {
+          app.utils.error.send(err, req, res);
+        } else {
+          res.status(200).json(Object.assign(req.body, req.params)); //aqui ele recebe o codigo 200(sucesso) e inseri o json do user
+        }
       }
-    });
+    );
   });
 
   routeId.delete((req, res) => {
     //Estabeleci o método delete, coloquei a requisisão e a resposta
-    db.remove({ _id: req.params.id }, {}, err /*Função de callback*/ => {
-     //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
-     //No Id selecionado, graças ao metodo update do neDB
+    db.remove({ _id: req.params.id }, {}, (err) /*Função de callback*/ => {
+      //Esse método é o update, ele acessa os dados que recebe do req.body e atualiza
+      //No Id selecionado, graças ao metodo update do neDB
       if (err) {
         app.utils.error.send(err, req, res);
       } else {
-        res.status(200).json(req.params); //aqui ele recebe o codigo 200(sucesso) 
+        res.status(200).json(req.params); //aqui ele recebe o codigo 200(sucesso)
         //e mostra na tela o objeto removido
-        
       }
     });
   });
-
-
 };
 //Foi removido o create server e substituído diretamente pelo metodo que vamos
 //utilizar pela rota, nesse caso o GET
