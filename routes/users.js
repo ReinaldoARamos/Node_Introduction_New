@@ -40,10 +40,9 @@ module.exports = (app) => {
         }
       });
   });
-  const {body, validationResult  } = require('express-validator');
-  
+  let {body, validationResult  } = require('express-validator');
   route.post(
-    body('email', 'Digite um email valido').isEmpty(),
+    body('NAME', 'email inválido'  ).isEmpty(),
     
     (req, res) => {
     //Colocamos o post para inserir users dentro do DB
@@ -52,20 +51,15 @@ module.exports = (app) => {
    //('nAME', 'Nome e obrigatório').notEmpty();
     //req.assert('email', 'email inválido').isEmail().notEmpty();
 
-    let errors = validationResult(req);
+   let errors = validationResult(req);
 
 
-    if(!errors.isEmpty()) {
-      res.status(400).json(errors, req, res);
-
-      /*
-      res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
-      res.setHeader("Content-Type", "text/HTMl"); //Retorna um header em HTML
-      res.end("<h1> ai....</h1>");
-      */
+    if(errors) {
+     
+      res.status(400).json(errors);
       //app.utils.error.send(errors, req, res);
       return false;
-    }
+    }else {
 
 
     db.insert(req.body, (err, users) => {
@@ -85,8 +79,9 @@ module.exports = (app) => {
     //nele colocamos o objto json que estamos retornando e uma função, como a erro por exemplo,
     //caso o método retorne erro, como o de cadastro ja existente
     //e claro, colocamos também os dados do usuário
+  }
   });
-
+    
   let routeId = app.route("/user/:id");
   //Criei uma roto que vai receber os ids dos users
 
