@@ -41,6 +41,7 @@ module.exports = (app) => {
       });
   });
   const {body, validationResult  } = require('express-validator');
+  
   route.post(
     body('email', 'Digite um email valido').isEmpty(),
     
@@ -54,8 +55,15 @@ module.exports = (app) => {
     let errors = validationResult(req);
 
 
-    if(errors) {
-      app.utils.error.send(errors, req, res);
+    if(!errors.isEmpty()) {
+      res.status(400).json(errors, req, res);
+
+      /*
+      res.statusCode = 200; //Código de quando o usuário acessa cm sucesso o servidor
+      res.setHeader("Content-Type", "text/HTMl"); //Retorna um header em HTML
+      res.end("<h1> ai....</h1>");
+      */
+      //app.utils.error.send(errors, req, res);
       return false;
     }
 
