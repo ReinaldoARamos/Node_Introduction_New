@@ -19,7 +19,7 @@ consign().include('routes').include('utils').into(app);
 //contidos nele
 //tudo isso dentro da variáve app
 
-//app.use(expressValidator());
+
 
 app.listen(3000, "127.0.0.1", () => {
   //Inserimos a porta e o nosso IP local e uma função anonima

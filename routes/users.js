@@ -40,7 +40,7 @@ module.exports = (app) => {
         }
       });
   });
-  //let { body, validationResult, check } = require("express-validator");
+  let { body, validationResult, check } = require("express-validator");
   //Dando require do body e do ValidationResult para guardar o resultado da validação dos dados
   route.post((req, res) => {
     //Colocamos o post para inserir users dentro do DB
@@ -54,7 +54,7 @@ module.exports = (app) => {
     body("email", "email invalido").isEmpty().isEmail();
     //req.assert('email', 'email inválido').isEmail().notEmpty();
 
-    let errors = validationResult;
+    let errors = validationResult(req);
     //Criei um let para guardar o require com o resultado da validação dos campos
 
     if (errors) {
