@@ -40,15 +40,15 @@ module.exports = (app) => {
         }
       });
   });
-  let {body, validationResult  } = require('express-validator'); 
+  let {body, validationResult, check  } = require('express-validator'); 
   //Dando require do body e do ValidationResult para guardar o resultado da validação dos dados
   route.post(
-    body('NAME', 'email inválido'  ).isEmpty(),
+    check('NAME', 'nome inválido'  ).isEmpty(),
     //aqui eu inseri o body para ele pegar os campos dentro do body dos users
     //Passei como parãmetro  o nome dos campos, nesse caso passei o NAME
     //Junto com a função isEmpty(), ou seja, ele vai validar o campo
     //E se estiver vazio ele retorna erro
-    
+    check('email', 'email invalido').isEmpty().isEmail().withMessage("email ivalido"),
     (req, res) => {
     //Colocamos o post para inserir users dentro do DB
     //foi apagado o get e trocado pelo post
