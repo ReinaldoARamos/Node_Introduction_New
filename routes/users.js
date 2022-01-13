@@ -52,6 +52,7 @@ module.exports = (app) => {
       //Aqui ele faz o require do body e a arrow function anonima recebe o JSON users s o errro
       //Como parametro
 
+      
     
       if (err) {
         //Se der erro ele retorna erro
