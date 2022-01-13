@@ -19,6 +19,8 @@ module.exports = {
       //res.status(400).json(errors);
       app.utils.error.send(errors, req, res);
       return false; //Parar a função
+    }else{
+        return true
     }
   },
 };

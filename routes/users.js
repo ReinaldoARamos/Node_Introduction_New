@@ -46,11 +46,13 @@ module.exports = (app) => {
     //Colocamos o post para inserir users dentro do DB
     //foi apagado o get e trocado pelo post
     // para que possamos simular um no Psotman
-
+   // if (!app.utils.validator.user(app, req, res)) return false;
     db.insert(req.body, (err, users) => {
       //Insert e o comando usado para inserir arquivos dentro do DB
       //Aqui ele faz o require do body e a arrow function anonima recebe o JSON users s o errro
       //Como parametro
+
+    
       if (err) {
         //Se der erro ele retorna erro
         app.utils.error.send(err, req, res);
@@ -84,6 +86,7 @@ module.exports = (app) => {
 
   routeId.put((req, res) => {
     //Estabeleci o método get, coloquei a requisisão e a resposta
+  //  if (!app.utils.validator.user(app, req, res)) return false;
     db.update(
       { _id: req.params.id },
       req.body,
